@@ -1,0 +1,165 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.background-scene::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('images/download\ \(1\).jpeg'); /* Optional local image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+}
+
+.weather-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 30px;
+  background-color: #0077ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 100%;
+}
+
+#marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.app-wrapper {
+  max-width: 500px;
+  width: 100%;
+ background-color: rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  margin:auto;
+  margin-top: 100px;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-right: 10px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 30%;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+.dark-mode .app-wrapper {
+  background-color: rgba(30, 30, 30, 0.85);
+}
+.dark-mode .weather-marquee {
+  background-color: #333;
+}
+
+.weather-display, .forecast-cards {
+  margin-top: 1rem;
+}
+.forecast-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.forecast-card {
+  background: #e3f2fd;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100px;
+  text-align: center;
+  margin: 5px;
+}
+.dark-mode .forecast-card {
+  background: #2c2c2c;
+}
+
+ul#historyList {
+  list-style: none;
+  padding: 0;
+}
+#historyList li {
+  cursor: pointer;
+  padding: 5px;
+  margin: 2px 0;
+  border-radius: 5px;
+}
+#historyList li:hover {
+  background: #d0e0ff;
+}
+.weather-marquee {
+  background: #0077ff;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
